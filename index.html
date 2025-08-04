@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeHelp - Doubt Resolution & Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f72585;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .card h2 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-resource {
+            background: var(--success);
+            border-color: var(--success);
+        }
+        
+        .btn-resource:hover {
+            background: transparent;
+            color: var(--success);
+        }
+        
+        /* Resources Section */
+        .resources {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resources h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .resource-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-item i {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+            
+        .btn-timetable {
+            background: #7209b7;
+            border-color: #7209b7;
+        }
+        
+        .btn-timetable:hover {
+            background: transparent;
+            color: #7209b7;
+        }
+         /* Test Section */
+        .tests {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tests h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .test-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .test-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .test-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .test-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .btn-zoom {
+            background: var(--zoom);
+            border-color: var(--zoom);
+        }
+        
+        .btn-zoom:hover {
+            background: transparent;
+            color: var(--zoom);
+        }
+        
+        /* Zoom Section */
+        .zoom {
+            background: rgb(182, 182, 182);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .zoom h2 {
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .zoom-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .zoom-details {
+            background: var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .zoom-details-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Timetable Section */
+        .timetable {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .timetable h2 {
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .timetable-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .social-links {
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .features, .resource-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <img src="" alt="">
+        <a href="#" class="logo">Code Warriors </a>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#resources">Resources</a>
+            <a href="#contact">Contact</a>
+            <a href="https://forms.gle/JeKTmQQEZYDQse8M8" target="_blank">Ask Doubt</a>
+            <a href="https://forms.gle/BawZjeSfU7uFT5zi9" target="_blank">Rate Us</a>
+        </div>
+    </nav>
+    
+    <!-- Header -->
+    <header class="hero">
+        <div class="container">
+            <h1>Welcome to Code Warriors </h1>
+            <p class="tagline">Your one-stop solution for coding doubts and learning resources</p>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Features -->
+        <section class="features">
+            <div class="card">
+                <i class="fas fa-question-circle"></i>
+                <h2>Submit Doubts</h2>
+                <p>Stuck on a problem? Submit your doubts, and our experts will help you out.</p>
+                <a href="https://forms.gle/zk7KxkZBBRPh2k2x5" class="btn" target="_blank">
+                    <i class="fas fa-paper-plane"></i> Ask Now
+                </a>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h2>Rate Us</h2>
+                <p>Help us improve by sharing your feedback. We appreciate your reviews!</p>
+                <a href="https://forms.gle/Hn3ZxCuB9iyQ8gTr5" class="btn" target="_blank">
+                    <i class="fas fa-comment-alt"></i> Rate Now
+                </a>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h2>Code Repository</h2>
+                <p>Access solved examples, projects, and coding resources in one place.</p>
+                <a href="https://forms.gle/cJd6rUjBn1K3uQMo8" class="btn btn-outline" target="_blank">
+                    <i class="fas fa-code-branch"></i> View Code
+                </a>
+            </div>
+        </section>
+        
+          <section class="timetable" id="timetable">
+            <h2><i class="fas fa-calendar-alt"></i> Class Timetable</h2>
+            <div class="timetable-content">
+                <p>View or download the schedule for upcoming classes and sessions</p>
+                <a href="https://forms.gle/KZzm6ge1rKCMwe3P6" class="btn btn-timetable" target="_blank">
+                    <i class="fas fa-download"></i> Download Timetable
+                </a>
+                <div class="timetable-preview">
+                     <!-- Zoom Section -->
+        <section class="zoom" id="zoom">
+            <h2><i class="fas fa-video"></i> Live Classes</h2>
+            <div class="zoom-content">
+                <div class="zoom-details">
+                    <div class="zoom-details-item">
+                        <i class="fas fa-link" style="color: var(--zoom);"></i>
+                        <span>Join our live coding sessions and interactive classes</span>
+                    </div>
+                   
+                    <div class="zoom-details-item">
+                        <i class="fas fa-key" style="color: var(--zoom);"></i>
+                        <span>Password: html</span>
+                    </div>
+                </div>
+                <a href="https://forms.gle/tu7nnY2ErtEzKLqQ8" class="btn btn-zoom" target="_blank">
+                    <i class="fas fa-video"></i> Join Zoom Class
+                </a>
+            </div>
+        </section>
+        <!-- Tests Section -->
+        <section class="tests" id="tests">
+            <h2><i class="fas fa-clipboard-check"></i> Tests & Quizzes</h2>
+            <div class="test-grid">
+                <div class="test-item">
+                    <h3>Quizzes Assessment</h3>
+                    <p>Test your knowledge of fundamental web development concepts</p>
+                    
+                    <a href="https://forms.gle/68jCs443VbWxSPQP9" class="btn btn-test" target="_blank">
+                        <i class="fas fa-play"></i> Start Test
+                    </a>
+                </div>
+                
+        <!-- Resources Section -->
+        <section class="resources" id="resources">
+            <h2><i class="fas fa-book-open"></i> Learning Resources</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>HTML Handbook</h3>
+                    <p>The ultimate guide to HTML for beginners and advanced developers.</p>
+                    <a href="https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/YouTube/The%20Ultimate%20HTML%20handbook.pdf" class="btn btn-resource" target="_blank">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+                
+                <div class="resource-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>CSS Cheat Sheet</h3>
+                    <p>Quick reference for all CSS properties and selectors.</p>
+                    <a href="#" class="btn btn-resource" target="_blank">
+                        <i class="fas fa-download"></i> Coming Soon
+                    </a>
+                </div>
+                
+                <div class="resource-item">
+                 <div class="resource-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Practice Sets</h3>
+                    <p>Collection of coding problems </p>
+                    <a href="https://forms.gle/76C8zdbtLY2Zihb69" class="btn btn-resource" target="_blank">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+        </section>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2><i class="fas fa-headset"></i> Need Help? Contact Us (Message only NO Call)</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span><a href="tel:+919343332683">+91 9343332683</a></span>
+                </div>
+                <div class="contact-item">
+                    
+                    <span><a href="mailto:support@codehelp.com"></a></span>
+                </div>
+                <div class="contact-item">
+                   
+                    <span></span>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+            
+            </div>
+            <p>&copy; 2025 <strong>Code Warriors</strong>. All Rights Reserved.</p>
+            <p>Made with <i class="fas fa-heart" style="color: var(--warning);"></i> for coders</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

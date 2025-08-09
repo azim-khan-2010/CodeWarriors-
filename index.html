@@ -52,6 +52,48 @@
             text-decoration: none;
         }
         
+          .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-img {
+            height: 100px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -423,17 +465,24 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-      <img src="" alt="">
-        <a href="#" class="logo">Code Warriors </a>
+   <!-- Navigation -->
+     <nav class="navbar">
+        <div class="logo-container">
+            <img src="Screenshot_2025-07-27_170107-removebg-preview (2).png" alt="CodeHelp Logo" class="logo-img">
+            <a href="#" class="logo-text">CodeHelp</a>
+        </div>
         <div class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
         </div>
         <div class="nav-links" id="navLinks">
+            <a href="#tests">Tests</a>
+            <a href="#zoom">Live Classes</a>
+            <a href="#timetable">Timetable</a>
+            <a href="#portfolio">Portfolio</a>
             <a href="#resources">Resources</a>
             <a href="#contact">Contact</a>
-            <a href="https://forms.gle/JeKTmQQEZYDQse8M8" target="_blank">Ask Doubt</a>
-            <a href="https://forms.gle/BawZjeSfU7uFT5zi9" target="_blank">Rate Us</a>
+            <a href="YOUR_GOOGLE_FORM_DOUBT_LINK" target="_blank">Ask Doubt</a>
+            <a href="YOUR_PRACTICE_SETS_LINK" target="_blank">Practice Sets</a>
         </div>
     </nav>
     
@@ -607,6 +656,7 @@
 </body>
 
 </html>
+
 
 
 
